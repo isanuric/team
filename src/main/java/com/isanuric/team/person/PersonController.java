@@ -18,7 +18,7 @@ public class PersonController {
 
     @GetMapping("/")
     public String healthcheck() {
-        return "ok";
+        return "Welcome to Team application!";
     }
 
     @GetMapping("/get")
