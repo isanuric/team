@@ -3,19 +3,27 @@ kind: Service
 metadata:
   labels:
     app: team
-  name: team
+  name: team-service
   namespace: default
   selfLink: /api/v1/namespaces/default/services/team
 spec:
-  clusterIP: 10.103.185.125
-  externalTrafficPolicy: Cluster
+  type: NodePort
   ports:
-  - nodePort: 31805
-    port: 8080
-    protocol: TCP
-    targetPort: 8080
+    - nodePort: 30009
+      port: 8080
+      targetPort: 8080
   selector:
     app: team
-  sessionAffinity: None
-  type: LoadBalancer
 
+#  # ip of the service
+#  clusterIP: 10.103.185.125
+#  externalTrafficPolicy: Cluster
+#  ports:
+#  - nodePort: 31805
+#    port: 8080
+#    protocol: TCP
+#    targetPort: 8080
+#  selector:
+#    app: team
+#  sessionAffinity: None
+#  type: LoadBalancer

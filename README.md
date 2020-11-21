@@ -1,5 +1,5 @@
 # Team
-A sample for testing Hibernate, Postgres, JdbcTemplate and HikariCP, Kubernetes, Minikube.
+A sample for testing Hibernate, Postgres, JdbcTemplate, HikariCP, Kubernetes and Minikube.
 
 
 ## Deployment
@@ -8,9 +8,14 @@ A sample for testing Hibernate, Postgres, JdbcTemplate and HikariCP, Kubernetes,
 
 
 #### Minikube
+
 * Download and start latest [minikube](https://minikube.sigs.k8s.io/docs/start/) version:  
 `$ minikube start`   
+* Install ingress controller in minikube:  
+`$  minikube addons enable ingress`
 
+
+##### Deployments (First Approach)
 * Create docker image inside minikube:  
 `$ eval $(minikube docker-env)`  
 `$ mvnw spring-boot:build-image`  
@@ -23,6 +28,12 @@ A sample for testing Hibernate, Postgres, JdbcTemplate and HikariCP, Kubernetes,
 `$ kubectl expose deployment ${APPLICATION_NAME} --type=LoadBalancer --port=8080`
 
 * Access the application from outside:  
-`minikube service ${APPLICATION_NAME}`  
+`$ minikube service ${APPLICATION_NAME}` 
 
+or  
+  
+##### Deployments (Second Approach)
+* Execute minikube.sh  
+`$ chmod +x minikube.sh`  
+`$ ./minikube.sh`
 
