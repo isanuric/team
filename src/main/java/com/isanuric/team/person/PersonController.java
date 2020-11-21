@@ -16,6 +16,11 @@ public class PersonController {
         this.personRepository = personRepository;
     }
 
+    @GetMapping("/")
+    public String healthcheck() {
+        return "ok";
+    }
+
     @GetMapping("/get")
     public Optional<Person> get() {
         final Optional<Person> person = this.personRepository.findById(1L);
