@@ -16,9 +16,14 @@ public class PersonController {
         this.personRepository = personRepository;
     }
 
-    @GetMapping("/")
-    public String healthcheck() {
+    @GetMapping("/welcome")
+    public String welcome() {
         return "Welcome to Team application!";
+    }
+
+    @GetMapping("/info")
+    public String info() {
+        return "Info";
     }
 
     @GetMapping("/get")

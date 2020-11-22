@@ -10,7 +10,7 @@ A sample for testing Hibernate, Postgres, JdbcTemplate, HikariCP, Kubernetes and
 #### Minikube
 
 * Download and start latest [minikube](https://minikube.sigs.k8s.io/docs/start/) version:  
-`$ minikube start`   
+`$ minikube start --vm-driver=virtualbox --extra-config=kubelet.authentication-token-webhook=true`   
 * Install ingress controller in minikube:  
 `$  minikube addons enable ingress`
 
@@ -24,7 +24,7 @@ A sample for testing Hibernate, Postgres, JdbcTemplate, HikariCP, Kubernetes and
 * Deploy docker image  
 `$ kubectl create deployment ${APPLICATION_NAME} --image=${APPLICATION_NAME}:0.0.1-SNAPSHOT`   
 
-* Create service:  
+* Expose the Deployment:  
 `$ kubectl expose deployment ${APPLICATION_NAME} --type=LoadBalancer --port=8080`
 
 * Access the application from outside:  
