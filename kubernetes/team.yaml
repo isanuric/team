@@ -73,8 +73,21 @@ spec:
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
+          volumeMounts:
+            - name: passwords
+              mountPath: application.passwords
+              readOnly: true
+            - name: configurations
+              mountPath: application.properties
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
+      volumes:
+        - name: passwords
+          secret:
+            secretName: team-secret
+        - name: configurations
+          configMap:
+            name: team-configmap
