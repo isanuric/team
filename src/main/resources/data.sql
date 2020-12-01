@@ -3,3 +3,4 @@ VALUES
 ('Friedrich', 'Nietzsche', 'Mainz'),
 ('Aldous', 'Huxley', 'Godalming'),
 ('Jackson', 'Pollock', 'NY');
+
