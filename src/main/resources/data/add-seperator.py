@@ -1,17 +1,16 @@
-# theFile="hafez2.txt"
-# with open(theFile) as f:
-#     list = []
-#     items = f.readlines()
-#     for item in items:
-#         list.append(item)
-#
-#     for i in range(len(list)):
-#         if not list[i].strip() and not list[i+1].strip():
-#             #print("AA BB CC DD")
-#             list[i] = ';'
-#         if "غزل" in list[i] and i < len(list) - 1:
-#             list[i+1] = ','
-#         print(list[i])
+theFile="hafez.txt"
+with open(theFile) as f:
+    list = []
+    items = f.readlines()
+    for item in items:
+        list.append(item)
+
+    for i in range(len(list)):
+        # if not list[i].strip() and not list[i+1].strip():
+        #     list[i] = ';'
+        # if "غزل" in list[i] and i < len(list) - 1:
+        #     list[i+1] = ','
+        print(list[i])
 
 
     #for cnt, line in enumerate(f):
