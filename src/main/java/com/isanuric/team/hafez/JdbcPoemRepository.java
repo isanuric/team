@@ -1,7 +1,6 @@
 package com.isanuric.team.hafez;
 
 
-import com.isanuric.team.person.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
