@@ -1,6 +1,7 @@
 package com.isanuric.team.hafez;
 
 
+import io.micrometer.core.instrument.util.StringEscapeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -11,6 +12,15 @@ public class JdbcPoemRepository implements PoemRepository {
     // Spring Boot creates and configures DataSource and JdbcTemplate
     @Autowired
     private JdbcTemplate jdbcTemplate;
+
+    @Override
+    public Poem getEntryById(Integer id) {
+        return jdbcTemplate.queryForObject(
+                "select poem from poems WHERE id=?",
+                (result, ln) -> new Poem("", result.getString("poem")),
+                new Object[] { id }
+        );
+    }
 
     @Override
     public Poem getEntryByName(String name) {

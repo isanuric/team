@@ -13,6 +13,7 @@ import lombok.Setter;
 //@AllArgsConstructor
 public class Poem {
 
+    private Integer id;
     private String poemName;
     private String poem;
 
