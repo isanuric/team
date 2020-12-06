@@ -7,11 +7,20 @@ CREATE TABLE person (
 );
 
 CREATE TABLE poems(
-    id SERIAL PRIMARY KEY,
+    id SERIAL UNIQUE PRIMARY KEY,
     poem_name VARCHAR UNIQUE NOT NULL,
     poem VARCHAR (1024),
     created_on TIMESTAMP NOT NULL DEFAULT NOW()
 );
+
+CREATE TABLE poems_list(
+    id SERIAL PRIMARY KEY,
+    poem_start VARCHAR UNIQUE NOT NULL,
+    poem_id REFERENCES poems (id),
+    created_on TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+
 
 CREATE TABLE IF NOT EXISTS dictionary (
     id SERIAL PRIMARY KEY,
